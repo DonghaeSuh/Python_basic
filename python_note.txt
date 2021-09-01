@@ -1,0 +1,305 @@
+20210829 
+정수가 print에서 + 사이에 쓰기이 위해서는
+str(정수) 로 해주어야 한다. 정수를 문자형으로 바꿔줌
+
+긴문장 주석처리 ''' 뭐시기~ '''
+또는 주석이 필요한 부분 선택하고 ctrl + / 
+
+연산자 제곱 2**3 = 2^3
+몫 구하기 5//3 = 1
+
+and (=&)   /  or(=| )
+ 
+절댓값 : abs()
+제곱   pow(a,b)  = a^b
+최댓값, 최솟값   max(a,b)  or min(a,b)
+반올림  round()
+
+
+
+math 라이브러리 이용
+from math import *    //math 라이브러리의 모든건 활용
+floor() 내림
+ceil() 올림
+sqrt() 제곱근
+
+
+///////랜덤함수///////
+
+from random import *
+
+print(random())    //0.0 ~ 1.0미만의 임의의 값 생성
+곱셈,덧셈 등 사칙연산을 통해 범위 조정 가능
+더 나아가 소숫점 없애기 => 정수형
+
+int(random()) 하면 됨
+
+
++ randrange(a,b)   a부터 b 미만의 범위의 임의의 값 생성 (끝 포함 안함)
++ randint(a,b) a,b 사이의 임의의 값 , a,b도 포함  (자료형은 int)
+
+
+random 모듈의 shuffle 과 sample
+
+from random import *
+
+
+lst = [1,2,3,4,5]
+shuffle(lst)  : 순서 섞기
+print(lst)
+print(sample(lst,1))  : 랜덤으로 하나 뽑기
+
+
+
+//////////문자열 길게 받기
+""" ㅇㄹ다ㅡㄹㅈ
+ ㄹ다ㅡㄹ ㅣㅏ 
+ ㄷ라 드ㅜ '''
+
+
+슬라이싱 (필요한 정보만 자르기)
+
+jumin ="123456" 
+  시작은 0부터 시작
+ => jumin[원하는 값]
+
++ 받아올 때 범위도 가능  jumin[0:2]  0번째 부터 2직전 까지 => 0,1 출력
+                                jumin[3:]  3부터 끝까지
+  뒤에서부터 가능
+   => -로 표현  => jumin[-7:] 뒤에서 7번쨰 부터 끝까지 (순서는 앞에서 뒤로 방향 이전과 똑같음)
+
+
+문자열 처리함수
+ => 모두 소문자로
+
+python = "Python is Amazing"
+python.lower() => 모두 소문자로 표현됨 
+python.upper() => 모두 대문자
+python[원하는 구간].isupper()   => 대문자인지?    => 변수에 따른 대소문자 변환 => 이후 읽어서 다음단계 어떻게 할 것인 지 결정하는 알고리즘
+
+len(python)   => 길이
+
+특정 문자만 바꾸기 
+python.replace("Python","Java")   => 특정 문자 지우기도 가능 python.replace("Python", "")
+
+index = python.index("n")  : 몇번쨰 위치해 있는지
+print(index)  =>5
+index = python.index("n", index+1)  6번쨰 위치부터 그 뒤에 n 이 몇번째 있는지 (순서는 맨 처음부터 시작)
+
+python.find("n")  : n이 몇번째?
+python.find("Java") = -1 로 나옴 즉 없다는 뜻,   python.index("Java") => 에러남
+
+
+python.count("n") : n이 총 몇번?
+
+
+문자열 합침(+) , 콤마(띄어쓰기)
+//////////////문자열 포멧
+
+print("나는 %d살 입니다." % 20)  %d :  정수
+              %s  %문자열, 정수도 가능
+              %c  % 문자 하나
+
+값 두개?
+  print("나는 %s와 %s를 좋아한다. " %(나, 가)
+
+  print(" 나는 {}입니다.".format(20))  
+          " 나는 {}와 {}를 좋아함.".format("나","가")
+           " 나는 {0}와 {1}를 좋아함.".format("나","가")  =>숫자 이용해서 바꾸어서 입력 가능
+
+print("나는{age}살이며, {color}색을 좋아함.".format(age=20,color="빨간"))
+
+
+
+파이썬3.6이상 =>    
+age =20
+color ="빨간"
+print(f"나는 {age}살이며, {color}색을 좋아한다.")
+
+앞에 f를 이용해 print 에서 실제 변수값 이용 가능
+
+
+//////////탈출문자
+print("백문의 불여일견 \n 백견이 불여일타"       \n : 줄바꿈
+
+print("저는 '나도코딩'입니다" ) 가능 
+이떄 탈출문자 사용
+print("저는\"나도코딩\"입니다.")   =>  \" or \'는 문장 내에서 따옴표로 사용 가능
+
+\\역슬러쉬 두번 => \하나 출력
+
+
+\r : 커서를 맨 앞으로 이동해서 덮어 씌운다.
+print("Red Apple\rPine")  => PineApple
+
+\b 백스페이스 (한글자 삭제) =>한글자 앞으로 이동후 덮어씌움
+
+\t: 탭
+
+
+((((((((((((((((((((((((((((((((((((((((((((((((((((((20210830))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+특정 문자 지우기도 가능 python.replace("Python", "")
+
+
+//리스트
+: 순서를 가지는 객체의 집합  (단어 가능)
+(배열과 유사 )
+
+subway = [a,b,c]
+
+  => 활용   => a,b,c의 위치를 찾을 수 있음
+ subway.index("a") = 1
+
+  + 더하기 가능
+subway.append("d")
+ =>  [a,b,c,d]
+   append는 맨 뒤에 붇는다
+
+특정 영역에 집어넣음 가능
+
+subway.insert(1,e)   => 1뒤에 추가
+ => [a,e,b,c,d]
+
+
+특정 영역을 없애기 가능
+
+subway.pop() : 맨 뒤에 뺀다
+subway.pop(번호) : 해당 번호에 해당하는 부분 지움 (0부터 시작)
+
+같은 변수가 몇개 있는지 ?
+
+subway.count("a") =1
+
+
+정렬도 가능
+num_list = [5,4,2,3,1]
+num_list.sort()
+ = [1,2,3,4,5]
+
+역정렬 (앞뒤 순서바꿈) 
+num_list.reverse()
+ = [5,4,3,2,1,]
+
+모두 지우기
+num_list.clear()
+ = []
+
+*******리스트는 다양한 자료형과 함께 사용 가능
+
+리스트 확장
+num_list.extend(mix_list)
+=> num_list+mix_list 가 이어짐
+
+
+///////////사전  key 와 value
+
+cabinet ={3:"유재석", 100:"김태호"}
+print(cabinet[3]) = 유재석
+print(cabinet.get(3)) : 위와 똑같은 값을 가져오는 방법
+
+
+주의 
+ print(cabinet[5])
+ print("hi") 
+  => 오류 뜨고 hi 안나옴  오류뜨고 프로그램 종류
+  get은 None이라 뜨고 종료되지는 않음  => None 말고 원하는 문장이 나오고 싶다면 print(cabinet[5],"원하는 문장")
+
+
+
+ key가 있는지 확인하는 방법 T or F
+ print(3 in cabinet)  = True
+ 
+ 열쇠의 이름은 다양하게 가능
+  예를들어 "A-3 도 key 이름으로 가능
+
+
+ 새롭게 넣기
+ cabinet[c-30] = "조세호" 
+  만약 이미 있는 키에 value 집어넣으면 덮어 씌워지게 된다
+
+ key 지우기
+
+ del cabinet["key "]
+
+ key 들만 출력
+ print(cabinet.keys())
+ vlaue 들만 출력
+ print(cabinet.values())
+
+ 쌍으로 출력
+print(cabinet.items())
+
+ 모두 지우기
+cabinet.clear()
+
+
+////튜플 (변경되지 않는 리스트, 속도 빠름)   ''''''리스트는 대괄호, 튜플은 소괄호''''''''''
+
+menu =("돈까스", "치즈까스")
+print(menu[0]) 등과 같이 출력
+
+menu.add( ) 불가능
+
+
+name, age, hobby =("김종국", 20,"코딩")
+다음과 같이도 가능
+
+
+((((((((((((((((((((((((((((((((((((((((((((((((((((((((((20210831))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+ 문자열=" " ,리스트 [],  튜플( ,)순서0 , 사전 {key : value } , 집합 { } 순서x 
+
+
+
+//집함 (set) : 중복 안되고, 순서 없음
+
+my_set = {1,2,3,3,3}
+print(my_set) = 1,2,3
+
+집합 정의방법
+{} or set([]) :리스트로 만들고 set으로 감싸줌
+
+java = {"a","b","c"}
+python =set(["a","d"])
+
+교집합
+
+print(java & python) = {'a'}       ( =   print(java.intersection(python))   )
+
+
+합집합
+ print( java | python)                (  =  print(java.union(python)    )
+
+
+차집합  (java 0     /  python  x  )
+print (java-python)   print(java.differrence(python))
+
+
+집합에 원소 추가
+python.add("김태호")
+
+집합에 원소 삭제
+java.remove("a")  
+
+
+/////////자료구조 변경
+menu = {"커피", "우유","주스"}
+print(menu, type(menu))   => {'커피', '우유', '주스'} <class 'set'>   집합 클래스 :    { }
+
+menu = list(menu)
+print(menu, type(menu))   =>   ['주스', '우유', '커피'] <class 'list'>  리스트 클래스 :   [ ]
+
+menu = tuple(menu) 
+print(menu, type(menu))   =>  ('주스', '커피', '우유') <class 'tuple'>  튜플 :    ( )
+ 
+
+ 
+/////숫자 생성
+range(1,21)  1부터 21전까지(20포함하기 까지) 숫자 생성
+
+
+users = range(1,3)
+print(users)                    : 오류   (이유: tpye(users) 하면 type 이 range라고 나와서 list에 있는 기능을 못씀
+
+
